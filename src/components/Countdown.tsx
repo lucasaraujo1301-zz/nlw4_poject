@@ -7,7 +7,7 @@ let countdownTimeout: NodeJS.Timeout;
 export function Countdown() {
     const {startNewChallenge} = useContext(ChallengesContext)
 
-    const [time, setTime] = useState(0.1 * 60);
+    const [time, setTime] = useState(0.05 * 60);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
 
@@ -57,6 +57,7 @@ export function Countdown() {
                 <button disabled
                         className={`${styles.countdownButton}`}>
                     Ciclo encerrado
+                    <img src="icons/check_circle.svg" />
                 </button>
             ) : (
                 <>
@@ -65,10 +66,12 @@ export function Countdown() {
                                 className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
                                 onClick={resetCountdown}>
                             Abandonar ciclo
+                            <img src="icons/close.svg" alt="" className={styles.countdownButtonActiveImg} />
                         </button>
                     )  : (
                         <button type="button" className={styles.countdownButton} onClick={startCountdown}>
                             Iniciar um clico
+                            <img src="icons/play_arrow.svg" alt=""/>
                         </button>
                     ) }
                 </>
